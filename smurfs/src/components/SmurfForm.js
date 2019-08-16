@@ -42,11 +42,12 @@ const FormikSmurfForm = withFormik({
     height: Yup.string().required("Height is required")
   }),
 
-  handleSubmit(values, { setStatus }) {
+  handleSubmit(values, { setStatus, resetForm }) {
     axios
       .post(`http://localhost:3333/smurfs`, values)
       .then(res => {
         setStatus(res.data);
+        resetForm();
       })
       .catch(err => console.log(err.response));
   }
