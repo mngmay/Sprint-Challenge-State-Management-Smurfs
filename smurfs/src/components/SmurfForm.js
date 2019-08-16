@@ -6,7 +6,8 @@ import { addSmurf } from "../actions";
 
 const SmurfForm = ({ errors, touched, values, status, addNewSmurf }) => {
   useEffect(() => {
-    addNewSmurf(values);
+    console.log("values", values);
+    values.name && addNewSmurf(values);
   }, [status]);
 
   return (
