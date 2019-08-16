@@ -5,7 +5,7 @@ import * as Yup from "yup";
 
 const SmurfForm = ({ errors, touched }) => {
   return (
-    <Form>
+    <Form className="add-form">
       <Field type="text" name="name" placeholder="Name" />
       {touched.name && errors.name && <p className="error">{errors.name}</p>}
 

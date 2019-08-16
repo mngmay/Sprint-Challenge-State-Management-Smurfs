@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { getData, addSmurf, updateSmurf } from "../actions";
+import { getData, addSmurf, updateSmurf, deleteSmurf } from "../actions";
 
 import FormikSmurfForm from "./SmurfForm";
 import SmurfList from "./SmurfList";
@@ -19,12 +19,20 @@ const App = props => {
     props.updateSmurf(smurf);
   };
 
+  const deleteSmurf = smurf => {
+    props.deleteSmurf(smurf);
+  };
+
   return (
     <div className="App">
       <h1>SMURFS! 2.0 W/ Redux</h1>
       {props.isLoading && "Loading Up Smurfs"}
       <FormikSmurfForm addNewSmurf={addNewSmurf} />
-      <SmurfList smurfs={props.smurfs} updateSmurf={props.updateSmurf} />
+      <SmurfList
+        smurfs={props.smurfs}
+        updateSmurf={updateSmurf}
+        deleteSmurf={deleteSmurf}
+      />
     </div>
   );
 };
@@ -39,5 +47,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getData, addSmurf, updateSmurf }
+  { getData, addSmurf, updateSmurf, deleteSmurf }
 )(App);

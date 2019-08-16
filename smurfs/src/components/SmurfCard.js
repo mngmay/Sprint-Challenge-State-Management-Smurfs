@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { checkPropTypes } from "prop-types";
 
-const SmurfCard = ({ smurf, updateSmurf }) => {
+const SmurfCard = ({ smurf, updateSmurf, deleteSmurf }) => {
   const [edit, setEdit] = useState(false);
   const [smurfToEdit, setSmurfToEdit] = useState(smurf);
 
@@ -21,7 +20,7 @@ const SmurfCard = ({ smurf, updateSmurf }) => {
       <span>Age: {smurf.age}</span>
       <span>Height: {smurf.height}</span>
       <div className="smurf-btns">
-        <button>Delete</button>
+        <button onClick={e => deleteSmurf(smurf)}>Delete</button>
         <button onClick={toggleEdit}>Edit</button>
       </div>
 
@@ -32,6 +31,7 @@ const SmurfCard = ({ smurf, updateSmurf }) => {
             updateSmurf(smurf);
             toggleEdit();
           }}
+          className="edit-form"
         >
           <input
             type="text"
