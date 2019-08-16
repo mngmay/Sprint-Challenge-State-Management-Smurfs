@@ -29,7 +29,7 @@ export const smurfReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        smurfs: action.payload,
+        smurfs: [...action.payload],
         error: ""
       };
     case FETCH_SMURFS_DATA_FAILURE:
@@ -72,7 +72,7 @@ export const smurfReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        smurfs: [],
+        smurfs: [...action.payload],
         error: ""
       };
     case DELETE_SMURF_FAILURE:
