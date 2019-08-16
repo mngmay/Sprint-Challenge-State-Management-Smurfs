@@ -1,8 +1,12 @@
 export {
   getData,
   addSmurf,
+  updateSmurf,
   FETCH_SMURFS_DATA_START,
   FETCH_SMURFS_DATA_SUCCESS,
   FETCH_SMURFS_DATA_FAILURE,
-  ADD_SMURF
+  ADD_SMURF,
+  UPDATE_SMURF,
+  UPDATE_SMURF_SUCCESS,
+  UPDATE_SMURF_FAILURE
 } from "./smurfActions";
