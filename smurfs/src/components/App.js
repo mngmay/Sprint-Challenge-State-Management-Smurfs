@@ -1,6 +1,6 @@
 import React, { Component, useEffect } from "react";
 import { connect } from "react-redux";
-import { getData } from "../actions";
+import { getData, addSmurf } from "../actions";
 
 import FormikSmurfForm from "./SmurfForm";
 
@@ -10,16 +10,14 @@ const App = props => {
     props.getData();
   }, []);
 
-  const statusUpdate = status => {
-    if (status) {
-      setUsers([...users, status]);
-    }
+  const addNewSmurf = smurf => {
+    props.addSmurf(smurf);
   };
 
   return (
     <div className="App">
       <h1>SMURFS! 2.0 W/ Redux</h1>
-      <FormikSmurfForm />
+      <FormikSmurfForm addNewSmurf={addNewSmurf} />
     </div>
   );
 };
@@ -35,5 +33,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getData }
+  { getData, addSmurf }
 )(App);
