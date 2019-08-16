@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import axios from "axios";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
@@ -37,14 +37,11 @@ const FormikSmurfForm = withFormik({
     height: Yup.string().required("Height is required")
   }),
 
-  handleSubmit(values, { addNewSmurf, resetForm }) {
-    console.log(resetForm);
+  handleSubmit(values, { addNewSmurf }) {
     axios
       .post(`http://localhost:3333/smurfs`, values)
       .then(res => {
-        console.log(res.data);
         addNewSmurf(res.data);
-        resetForm();
       })
       .catch(err => console.log(err.response));
   }

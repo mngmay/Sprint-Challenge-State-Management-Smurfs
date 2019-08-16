@@ -5,11 +5,35 @@ body {
   background-color: #84c9f2;
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 form {
   display: flex;
   flex-direction: column;
-  width: 100px;
-  justify-content: center;
+  width: 200px;
+  height: 150px;
+  justify-content: space-between;
   align-items: center;
-  border: 1px solid blue;
+  margin: 20px;
+}
+
+button,
+input {
+  outline: none;
+}
+
+.smurf {
+  display: flex;
+  width: 500px;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.smurf-btns {
+  margin: 5px;
 }

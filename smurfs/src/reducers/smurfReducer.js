@@ -6,7 +6,7 @@ import {
 } from "../actions";
 
 const initialState = {
-  smurfs: [{ name: "", age: "", height: "", id: "" }],
+  smurfs: [],
   isLoading: false,
   error: ""
 };
