@@ -2,7 +2,9 @@ import {
   FETCH_SMURFS_DATA_START,
   FETCH_SMURFS_DATA_SUCCESS,
   FETCH_SMURFS_DATA_FAILURE,
-  ADD_SMURF,
+  ADD_SMURF_START,
+  ADD_SMURFS_DATA_SUCCESS,
+  ADD_SMURFS_DATA_FAILURE,
   UPDATE_SMURF,
   UPDATE_SMURF_SUCCESS,
   UPDATE_SMURF_FAILURE,
@@ -38,11 +40,27 @@ export const smurfReducer = (state = initialState, action) => {
         isLoading: false,
         error: action.payload
       };
-    case ADD_SMURF:
+    case ADD_SMURF_START:
       console.log("smurf added");
       return {
         ...state,
-        smurfs: [...state.smurfs, action.payload]
+        smurfs: [...state.smurfs],
+        isLoading: true,
+        error: ""
+      };
+    case ADD_SMURFS_DATA_SUCCESS:
+      return {
+        ...state,
+        smurfs: [...state.smurfs, action.payload],
+        isLoading: false,
+        error: ""
+      };
+    case ADD_SMURFS_DATA_FAILURE:
+      return {
+        ...state,
+        smurfs: [...state.smurfs],
+        isLoading: false,
+        error: action.payload
       };
     case UPDATE_SMURF:
       return {

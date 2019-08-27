@@ -1,16 +1,1 @@
-export {
-  getData,
-  addSmurf,
-  updateSmurf,
-  deleteSmurf,
-  FETCH_SMURFS_DATA_START,
-  FETCH_SMURFS_DATA_SUCCESS,
-  FETCH_SMURFS_DATA_FAILURE,
-  ADD_SMURF,
-  UPDATE_SMURF,
-  UPDATE_SMURF_SUCCESS,
-  UPDATE_SMURF_FAILURE,
-  DELETE_SMURF,
-  DELETE_SMURF_SUCCESS,
-  DELETE_SMURF_FAILURE
-} from "./smurfActions";
+export * from "./smurfActions";

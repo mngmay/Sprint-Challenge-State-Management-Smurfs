@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
-import axios from "axios";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
-import { addSmurf } from "../actions";
 
 const SmurfForm = ({ errors, touched, values, status, addNewSmurf }) => {
   useEffect(() => {
@@ -44,13 +42,8 @@ const FormikSmurfForm = withFormik({
   }),
 
   handleSubmit(values, { setStatus, resetForm }) {
-    axios
-      .post(`http://localhost:3333/smurfs`, values)
-      .then(res => {
-        setStatus(res.data);
-        resetForm();
-      })
-      .catch(err => console.log(err.response));
+    setStatus(values);
+    resetForm();
   }
 })(SmurfForm);
 
