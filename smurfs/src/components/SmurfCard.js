@@ -9,9 +9,7 @@ const SmurfCard = ({ smurf, updateSmurf, deleteSmurf }) => {
   };
 
   const editHandler = e => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setSmurfToEdit({ ...smurf, [name]: value });
+    setSmurfToEdit({ [e.target.name]: e.target.value });
   };
 
   return (
@@ -37,21 +35,21 @@ const SmurfCard = ({ smurf, updateSmurf, deleteSmurf }) => {
             type="text"
             name="name"
             value={smurf.name}
-            onChange={e => editHandler(e)}
+            onChange={editHandler}
             placeholder="Name"
           />
           <input
             type="number"
             name="age"
             value={smurf.age}
-            onChange={e => editHandler(e)}
+            onChange={editHandler}
             placeholder="Age"
           />
           <input
             type="text"
             name="height"
             value={smurf.height}
-            onChange={e => editHandler(e)}
+            onChange={editHandler}
             placeholder="Height"
           />
         </form>

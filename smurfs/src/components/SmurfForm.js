@@ -2,12 +2,7 @@ import React, { useEffect } from "react";
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
-const SmurfForm = ({ errors, touched, values, status, addNewSmurf }) => {
-  useEffect(() => {
-    console.log("values", values);
-    values.name && addNewSmurf(values);
-  }, [status]);
-
+const SmurfForm = ({ errors, touched, values, status }) => {
   return (
     <Form className="add-form">
       <Field type="text" name="name" placeholder="Name" />
@@ -41,7 +36,9 @@ const FormikSmurfForm = withFormik({
     height: Yup.string().required("Height is required")
   }),
 
-  handleSubmit(values, { setStatus, resetForm }) {
+  handleSubmit(values, { props, setStatus, resetForm }) {
+    console.log("props", props);
+    props.addNewSmurf(values);
     setStatus(values);
     resetForm();
   }
